@@ -1,0 +1,85 @@
+h1 {
+    text-align: center;
+    border: 3px solid maroon;
+    margin: 50px;
+    padding: 25px;
+    font-family: 'Permanent Marker', cursive;
+    color: purple;
+    font-size: 40px;
+}
+
+p {
+    text-align: justify;
+}
+footer {
+    text-align: center;
+}
+
+p {
+    border: 5px solid maroon; 
+}
+
+p {
+    text-align: justify;
+    border: 1px solid maroon; 
+}
+footer {
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Amatic SC', cursive;
+    font-family: 'Staatliches', cursive;
+}
+footer {
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+    font-size: 25px;
+    border: 5px solid maroon; 
+    margin: 25px;
+    padding: 50px;
+    font-family: 'Permanent Marker', cursive;
+}
+footer {
+    text-align: center;
+}
+body {
+    text-align: center;
+    background-color: rgb(228, 128, 145);
+}
+
+.tama-game {
+    display: inline;
+    list-style-type: none;
+    font-size: 20px;
+    position: absolute;
+    font-family: 'Russo One', sans-serif;
+}
+.age {
+    list-style-type: none;
+    font-size: 20px;
+    font-family: 'Russo One', sans-serif;
+}
+button {
+    background-color: rgb(194, 144, 194);
+    font-size: 20px;
+    margin: 20px;
+}
+input {
+    font-size: 20px;
+    font-family: 'Amatic SC', cursive;
+    font-family: 'Staatliches', cursive;
+}
+#yourName {
+    color: rgb(100, 52, 52);
+}
+#countdown {
+    font-size: 30px;
+}
+
+body {
+    text-align: center;
+} 
