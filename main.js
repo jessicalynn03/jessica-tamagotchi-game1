@@ -22,6 +22,14 @@ const resetBtn = document.querySelector("#reset")
 // const seconds = time % 60;
 // let name = ""
 
+let petName = prompt(`Name your Tamagotchi!`);
+const namePrompt = () => {
+    if(petName !== null || petName !== "") {
+        document.querySelector("#yourName").innerText = `${petName}`;
+    }
+};
+namePrompt();
+
 
 
 
