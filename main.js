@@ -1,14 +1,14 @@
-const countdownEl = document.querySelector("#countdown")
+// const countdownEl = document.querySelector("#countdown")
 let hungerEl = document.getElementById("hunger")
 let tiredEl = document.getElementById("tired")
 let boredEl = document.getElementById("bored")
 
 const startButton = document.querySelector("#start")
-const restartButton = document.querySelector("#restart")
-const pauseButton = document.querySelector("#pause")
+// const restartButton = document.querySelector("#restart")
+// const pauseButton = document.querySelector("#pause")
 const yourName = document.querySelector("#yourName")
-const ageEl = document.querySelector(".age")
-const petAlive = document.querySelector("#petAlive")
+const ageEl = document.querySelector("#age")
+// const petAlive = document.querySelector("#petAlive")
 
 const feedBtn = document.querySelector("#feed")
 const playBtn = document.querySelector("#play")
@@ -117,7 +117,8 @@ const ageCount = () =>{
             ageEl.innerText = "Age: " + age;
         }
         else if(age === 20){
-            petAlive.innerText = "Died from old Age."
+            // petAlive.innerText = `Died of old Age`
+            gameOver();
         }
         }, 20000)
 }
@@ -129,8 +130,10 @@ const hungerCount = () =>{
             hungerEl.innerText = "Hungry: " + hungerNow;
         }
         else if(hungerNow === 10){
-            petAlive.innerText = "I died from overeating.";
+            // petDieMsg.innerText = `I died from hunger.`;
+            gameOver();
         }
+        // clearInterval(hungerInterval)
     }, 2000)
 }
 
@@ -141,8 +144,10 @@ const playCount = () =>{
             boredEl.innerText = "Bored: " + playNow;
         }
         else if(playNow === 10){
-            petAlive.innerText = "I died from boredom.";
+            // petDieMsg.innerText = `I died from boredom.`;
+            gameOver();
         }
+        // clearInterval(playInterval)
 }, 3000)
 }
 
@@ -153,8 +158,10 @@ const sleepCount = () =>{
             tiredEl.innerText = "Tired: " + sleepNow;
         }
         else if(sleepNow === 10){
-            petAlive.innerText = "I died from sleepiness.";
+            // petDieMsg.innerText = `I died from sleepiness.`;
+            gameOver();
         }
+        // clearInterval(sleepInterval)
     }, 4000)
     
 }
@@ -213,7 +220,7 @@ const startCount = () =>{
 let petDieMsg = document.getElementById("pet-die-msg")
 
 const gameOver = () => {
-    if(hungerNow >= 10) {
+    if(hungerNow === 10) {
         clearInterval(hungerInterval);
         clearInterval(playInterval);
         clearInterval(sleepInterval);
@@ -222,7 +229,7 @@ const gameOver = () => {
         playBtn.removeEventListener("click", subPlay);
         sleepBtn.removeEventListener("click", subSleep);
         petDieMsg.innerText = `I died of hunger.`
-    } else if(playNow >= 10) {
+    } else if(playNow === 10) {
         clearInterval(hungerInterval);
         clearInterval(playInterval);
         clearInterval(sleepInterval);
@@ -230,8 +237,8 @@ const gameOver = () => {
         feedBtn.removeEventListener("click", subFood);
         playBtn.removeEventListener("click", subPlay);
         sleepBtn.removeEventListener("click", subSleep);
-        petDieMsg.innerText = `I died of hunger.`
-    } else if(sleepNow >= 10) {
+        petDieMsg.innerText = `I died of boredom.`
+    } else if(sleepNow === 10) {
         clearInterval(hungerInterval);
         clearInterval(playInterval);
         clearInterval(sleepInterval);
@@ -239,7 +246,7 @@ const gameOver = () => {
         feedBtn.removeEventListener("click", subFood);
         playBtn.removeEventListener("click", subPlay);
         sleepBtn.removeEventListener("click", subSleep);
-        petDieMsg.innerText = `I died of hunger.`
+        petDieMsg.innerText = `I died of sleepiness.`
     }
 }
 
@@ -291,15 +298,18 @@ class Tamagotchipet{
 
 
 
-
-// if(hungerNow >= 10 || playNow >= 10 || sleepNow >= 10) {
-//     clearInterval(hungerInterval);
-//     clearInterval(playInterval);
-//     clearInterval(sleepInterval);
-//     clearInterval(ageInterval);
-//     feedBtn.removeEventListener("click", subFood);
-//     playBtn.removeEventListener("click", subPlay);
-//     sleepBtn.removeEventListener("click", subSleep);
+// const gameOver = () => {
+//     if(hungerNow >= 10 || playNow >= 10 || sleepNow >= 10) {
+//         clearInterval(hungerInterval);
+//         clearInterval(playInterval);
+//         clearInterval(sleepInterval);
+//         clearInterval(ageInterval);
+//         feedBtn.removeEventListener("click", subFood);
+//         playBtn.removeEventListener("click", subPlay);
+//         sleepBtn.removeEventListener("click", subSleep);
+//         petDieMsg.innerText = `I died`;
+//     }
+    
 // }
 
 
