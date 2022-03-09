@@ -125,30 +125,38 @@ const ageCount = () =>{
 
 const hungerCount = () =>{
     hungerInterval = setInterval(function(){
-        if(hungerNow < 10) {
+        if(hungerNow < 10){
             hungerNow++
             hungerEl.innerText = "Hungry: " + hungerNow;
+            if(hungerNow === 10){
+                gameOver();
+            }
         }
-        else if(hungerNow <= 10){
-            // petDieMsg.innerText = `I died from hunger.`;
-            gameOver();
-        }
-        // clearInterval(hungerInterval)
     }, 2000)
-}
+    } 
+    
+    // setInterval(function(){
+    //     if(hungerNow < 10) {
+    //     }
+    //     else if(hungerNow === 10){
+    //         // petDieMsg.innerText = `I died from hunger.`;
+    //     }
+    //     // clearInterval(hungerInterval)
+    // }, 2000)
+
 
 const playCount = () =>{
-    playInterval = setInterval(function(){
+   playInterval = setInterval(function(){
         if(playNow < 10) {
             playNow++ 
             boredEl.innerText = "Bored: " + playNow;
-        }
-        else if(playNow <= 10){
-            // petDieMsg.innerText = `I died from boredom.`;
+        if(playNow === 10){
             gameOver();
         }
+    }
+       
         // clearInterval(playInterval)
-}, 2000)
+}, 3000)
 }
 
 const sleepCount = () =>{
@@ -156,12 +164,10 @@ const sleepCount = () =>{
         if(sleepNow < 10) {
             sleepNow++
             tiredEl.innerText = "Tired: " + sleepNow;
-        }
-        else if(sleepNow <= 10){
-            // petDieMsg.innerText = `I died from sleepiness.`;
+        if(sleepNow === 10){
             gameOver();
         }
-        // clearInterval(sleepInterval)
+        }
     }, 4000)
     
 }
@@ -220,16 +226,8 @@ const startCount = () =>{
 let petDieMsg = document.getElementById("pet-die-msg")
 
 const gameOver = () => {
-    if(hungerNow === 10) {
-        clearInterval(hungerInterval);
-        clearInterval(playInterval);
-        clearInterval(sleepInterval);
-        clearInterval(ageInterval);
-        feedBtn.removeEventListener("click", subFood);
-        playBtn.removeEventListener("click", subPlay);
-        sleepBtn.removeEventListener("click", subSleep);
+    if(hungerNow >= 10) {
         petDieMsg.innerText = `I died of hunger.`
-    } else if(playNow === 10) {
         clearInterval(hungerInterval);
         clearInterval(playInterval);
         clearInterval(sleepInterval);
@@ -237,8 +235,8 @@ const gameOver = () => {
         feedBtn.removeEventListener("click", subFood);
         playBtn.removeEventListener("click", subPlay);
         sleepBtn.removeEventListener("click", subSleep);
+    } else if(playNow >= 10) {
         petDieMsg.innerText = `I died of boredom.`
-    } else if(sleepNow === 10) {
         clearInterval(hungerInterval);
         clearInterval(playInterval);
         clearInterval(sleepInterval);
@@ -246,7 +244,15 @@ const gameOver = () => {
         feedBtn.removeEventListener("click", subFood);
         playBtn.removeEventListener("click", subPlay);
         sleepBtn.removeEventListener("click", subSleep);
+    } else if(sleepNow >= 10) {
         petDieMsg.innerText = `I died of sleepiness.`
+        clearInterval(hungerInterval);
+        clearInterval(playInterval);
+        clearInterval(sleepInterval);
+        clearInterval(ageInterval);
+        feedBtn.removeEventListener("click", subFood);
+        playBtn.removeEventListener("click", subPlay);
+        sleepBtn.removeEventListener("click", subSleep);
     }
 }
 
