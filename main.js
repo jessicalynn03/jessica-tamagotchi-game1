@@ -129,7 +129,7 @@ const hungerCount = () =>{
             hungerNow++
             hungerEl.innerText = "Hungry: " + hungerNow;
         }
-        else if(hungerNow === 10){
+        else if(hungerNow <= 10){
             // petDieMsg.innerText = `I died from hunger.`;
             gameOver();
         }
@@ -143,12 +143,12 @@ const playCount = () =>{
             playNow++ 
             boredEl.innerText = "Bored: " + playNow;
         }
-        else if(playNow === 10){
+        else if(playNow <= 10){
             // petDieMsg.innerText = `I died from boredom.`;
             gameOver();
         }
         // clearInterval(playInterval)
-}, 3000)
+}, 2000)
 }
 
 const sleepCount = () =>{
@@ -157,7 +157,7 @@ const sleepCount = () =>{
             sleepNow++
             tiredEl.innerText = "Tired: " + sleepNow;
         }
-        else if(sleepNow === 10){
+        else if(sleepNow <= 10){
             // petDieMsg.innerText = `I died from sleepiness.`;
             gameOver();
         }
